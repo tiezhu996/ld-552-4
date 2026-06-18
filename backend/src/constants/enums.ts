@@ -3,4 +3,5 @@ export enum ResumeStatus { SUBMITTED = 'SUBMITTED', SCREENING = 'SCREENING', SHO
 export enum InterviewResult { PASS = 'PASS', FAIL = 'FAIL', PENDING = 'PENDING' }
 export enum OfferStatus { DRAFT = 'DRAFT', APPROVED = 'APPROVED', SENT = 'SENT', ACCEPTED = 'ACCEPTED', REJECTED = 'REJECTED', WITHDRAWN = 'WITHDRAWN' }
 export enum InterviewType { PHONE = 'PHONE', ONSITE = 'ONSITE', VIDEO = 'VIDEO', TECHNICAL = 'TECHNICAL' }
+export enum FollowUpType { PHONE = 'PHONE', EMAIL = 'EMAIL', WECHAT = 'WECHAT', ONSITE = 'ONSITE', VIDEO = 'VIDEO', OTHER = 'OTHER' }
 export enum UserRole { HR = 'HR', INTERVIEWER = 'INTERVIEWER', HIRING_MANAGER = 'HIRING_MANAGER', ADMIN = 'ADMIN' }

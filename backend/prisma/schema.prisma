@@ -47,6 +47,15 @@ enum InterviewType {
   TECHNICAL
 }
 
+enum FollowUpType {
+  PHONE
+  EMAIL
+  WECHAT
+  ONSITE
+  VIDEO
+  OTHER
+}
+
 enum UserRole {
   HR
   INTERVIEWER
@@ -65,6 +74,7 @@ model User {
   interviews     Interview[]
   approvedOffers Offer[]    @relation("OfferApprover")
   auditLogs      AuditLog[]
+  followUps      FollowUp[]
   createdAt      DateTime   @default(now())
   updatedAt      DateTime   @updatedAt
 }
@@ -95,8 +105,22 @@ model Candidate {
   source    String
   resumes   Resume[]
   offers    Offer[]
+  followUps FollowUp[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model FollowUp {
+  id          Int          @id @default(autoincrement())
+  candidateId Int
+  candidate   Candidate    @relation(fields: [candidateId], references: [id])
+  type        FollowUpType
+  content     String       @db.Text
+  contactedAt DateTime
+  createdById Int
+  createdBy   User         @relation(fields: [createdById], references: [id])
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
 }
 
 model Resume {
